@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Green Residence — Spaces with soul',
+  title: 'AURA Residence — Spaces with soul',
   description: 'Interior architecture and bespoke living spaces, shaped by nature, made for the way you live.',
   generator: 'v0.app',
   icons: {
