@@ -56,3 +56,6 @@
 
 /* Keep landing navigation text dark on hover */
 .luxury-landing .luxury-links a:hover,.luxury-landing .luxury-nav-actions .portal-login-link:hover,.luxury-landing .luxury-nav-actions .consultation-trigger:hover{color:#1c1f1d!important}
+
+/* Requested navigation typography refinement */
+.luxury-landing > .luxury-nav > .luxury-links > a{font-size:14px!important}
