@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ArrowUpRight, Check, ChevronDown, Menu, X } from 'lucide-react'
 
 const packages = [
@@ -24,6 +24,9 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [view, setView] = useState<'landing' | 'login' | 'portal'>('landing')
   const [consultationOpen, setConsultationOpen] = useState(false)
+  const [heroIndex, setHeroIndex] = useState(0)
+  const heroImages = ['/green-residence-hero.png', '/green-residence-kitchen.png', '/green-residence-bedroom.png']
+  useEffect(() => { const timer = window.setInterval(() => setHeroIndex((current) => (current + 1) % heroImages.length), 5200); return () => window.clearInterval(timer) }, [])
   const [area, setArea] = useState(120)
   const [tier, setTier] = useState('Signature')
   const [selectedPackage, setSelectedPackage] = useState<(typeof packages)[number] | null>(null)
@@ -36,7 +39,7 @@ export default function Page() {
   return <main className="luxury-landing">
     <div className="luxury-announcement">Koleksi privat 2026 · Konsultasi terbatas untuk hunian yang dibuat personal <ArrowUpRight size={13} /></div>
     <header className="luxury-nav"><a className="luxury-logo" href="#top"><span>GR</span><b>GREEN<br /><i>RESIDENCE</i></b></a><nav className={menuOpen ? 'luxury-links open' : 'luxury-links'}><a href="#philosophy">Filosofi</a><a href="#collection">Koleksi</a><a href="#process">Proses</a><a href="#calculator">Estimator</a></nav><div className="luxury-nav-actions"><button className="portal-login-link" onClick={() => setView('login')}>Login buyer <ArrowUpRight size={14} /></button><button className="consultation-trigger" onClick={() => setConsultationOpen(true)}>Konsultasi privat <ArrowUpRight size={14} /></button><button onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">{menuOpen ? <X /> : <Menu />}</button></div></header>
-    <section className="luxury-hero" id="top"><img src="/green-residence-hero.png" alt="Ruang keluarga mewah yang menghadap taman tropis" /><div className="hero-shade" /><div className="hero-copy"><span className="gold-label">JAKARTA · BALI · BEYOND</span><h1>Rumah yang<br /><em>terasa pulang.</em></h1><p>Interior architecture dan bespoke living spaces, dibentuk oleh alam, dibuat dengan niat, dan dirancang untuk cara Anda hidup.</p><div className="hero-buttons"><a className="gold-button" href="#collection">Jelajahi koleksi <ArrowUpRight size={15} /></a><a className="outline-light" href="#calculator">Hitung investasi</a></div></div><div className="hero-index">01 <span /> 03</div></section>
+    <section className="luxury-hero" id="top"><img key={heroImages[heroIndex]} src={heroImages[heroIndex]} alt="Interior Green Residence" /><div className="hero-shade" /><div className="hero-copy"><span className="gold-label">JAKARTA · BALI · BEYOND</span><h1>Rumah yang<br /><em>terasa pulang.</em></h1><p>Interior architecture dan bespoke living spaces, dibentuk oleh alam, dibuat dengan niat, dan dirancang untuk cara Anda hidup.</p><div className="hero-buttons"><a className="gold-button" href="#collection">Jelajahi koleksi <ArrowUpRight size={15} /></a><a className="outline-light" href="#calculator">Hitung investasi</a></div></div><div className="hero-index">0{heroIndex + 1} <span /> 0{heroImages.length}</div></section>
     <section className="philosophy-section" id="philosophy"><div className="side-label">OUR PHILOSOPHY</div><div><h2>Ruang terbaik bukan yang paling ramai. Ia adalah ruang yang <em>memahami Anda.</em></h2><div className="philosophy-bottom"><p>Green Residence adalah studio interior architecture untuk mereka yang menghargai quiet luxury, material jujur, dan keindahan yang tumbuh bersama waktu.</p><a href="#process">Cara kami bekerja <ArrowUpRight size={15} /></a></div></div></section>
     <section className="collection-section" id="collection"><div className="section-intro"><div><span className="gold-label">SELECTED RESIDENCES</span><h2>Karya yang <em>bercerita.</em></h2></div><p>Setiap proyek dimulai dari mendengar. Setiap detail berakhir pada rasa memiliki.</p></div><div className="residence-grid">{packages.map((item, index) => <article className={index === 0 ? 'residence-card featured' : 'residence-card'} key={item.name} onClick={() => setSelectedPackage(item)}><div className="residence-image"><img src={item.image} alt={item.name} /><span>0{index + 1}</span></div><div className="residence-meta"><div><h3>{item.name}</h3><p>{item.detail}</p></div><ArrowUpRight size={18} /></div></article>)}</div></section>
     <section className="statement-band"><span>CRAFTED FOR LIVING</span><h2>Quiet luxury.<br /><em>Deeply personal.</em></h2><span>GREEN RESIDENCE · 2026</span></section>
