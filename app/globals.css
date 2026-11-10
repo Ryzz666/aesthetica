@@ -59,3 +59,7 @@
 
 /* Requested navigation typography refinement */
 .luxury-landing > .luxury-nav > .luxury-links > a{font-size:14px!important}
+
+/* Requested CTA typography refinement */
+.luxury-landing > .luxury-nav > .luxury-nav-actions > button.portal-login-link:nth-of-type(1),
+.luxury-landing > .luxury-nav > .luxury-nav-actions > button.consultation-trigger:nth-of-type(2){font-size:14px!important}
