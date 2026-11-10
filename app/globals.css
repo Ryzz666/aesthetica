@@ -88,3 +88,7 @@
 
 /* Shared Green Residence luxury identity */
 .brand-logo-image{width:38px;height:38px;object-fit:contain;display:block}.luxury-logo .brand-logo-image{width:42px;height:42px}.portal-mini-logo .brand-logo-image{width:36px;height:36px}.portal-login-brand .brand-logo-image{width:48px;height:48px}.luxury-footer .brand-logo-image{width:42px;height:42px}
+
+/* Refined wordmark sizing */
+.luxury-logo .brand-logo-image{width:176px;height:42px;object-fit:contain}.luxury-footer .brand-logo-image{width:176px;height:42px;object-fit:contain}.portal-mini-logo .brand-logo-image{width:176px;height:40px;object-fit:contain}.portal-login-brand .brand-logo-image{width:220px;height:50px;object-fit:contain}
+@media(max-width:800px){.luxury-logo .brand-logo-image,.luxury-footer .brand-logo-image{width:155px;height:36px}.portal-mini-logo .brand-logo-image{width:150px;height:36px}.portal-login-brand .brand-logo-image{width:185px;height:44px}}
